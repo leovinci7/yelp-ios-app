@@ -19,19 +19,14 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vzE-do-oKz">
                                 <rect key="frame" x="0.0" y="115" width="393" height="703"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="r7Z-6Q-35V">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="72"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="Q0u-dh-Oys">
-                                    <rect key="frame" x="0.0" y="773.66666793823242" width="393" height="128"/>
+                                    <rect key="frame" x="0.0" y="701.66666793823242" width="393" height="128"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusinessViewCell" rowHeight="580" id="OR5-D4-HfU" userLabel="BusinessViewCell" customClass="YelpHomeViewCustomCell" customModule="YelpiOSApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="122" width="393" height="580"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="580"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OR5-D4-HfU" id="wJY-Pl-DLI">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="580"/>
@@ -106,7 +101,7 @@ Location</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellOne" id="w7Y-KA-bu1">
-                                        <rect key="frame" x="0.0" y="702" width="393" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="630" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w7Y-KA-bu1" id="q32-aV-sIt">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
