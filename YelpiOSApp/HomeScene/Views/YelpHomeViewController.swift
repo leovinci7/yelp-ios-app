@@ -22,9 +22,6 @@ class YelpHomeViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
-    
-   
 }
 
 
@@ -45,8 +42,6 @@ extension YelpHomeViewController: UITableViewDelegate, UITableViewDataSource{
         
         return cell!
     }
-    
-    
 }
 
 extension YelpHomeViewController: UISearchBarDelegate {
