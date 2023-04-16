@@ -12,7 +12,7 @@ class YelpHomeViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var countryArray = Countries.all
+    var businessFeed = BusinessViewModel.prototypeFeed
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,32 +28,32 @@ class YelpHomeViewController: UIViewController {
 extension YelpHomeViewController: UITableViewDelegate, UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(self.countryArray.count < 10){
-            return countryArray.count
+        if(self.businessFeed.count < 10){
+            return businessFeed.count
         }else{
             return 10
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessViewCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessViewCell") as! YelpHomeViewCustomCell
         //let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCellOne")
-        cell?.textLabel?.text = self.countryArray[indexPath.row]
-        
-        return cell!
+        let model = self.businessFeed[indexPath.row]
+        cell.configure(with: model)
+        return cell
     }
 }
 
 extension YelpHomeViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if(searchText != ""){
-            self.countryArray = Countries.all.filter({
-                $0.contains(searchText)
+            self.businessFeed = BusinessViewModel.prototypeFeed.filter({
+                $0.name.contains(searchText)
             })
             tableView.reloadData()
             
         }else {
-            self.countryArray = Countries.all
+            self.businessFeed = BusinessViewModel.prototypeFeed
             tableView.reloadData()
         }
     }

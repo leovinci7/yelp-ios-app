@@ -10,9 +10,9 @@ import UIKit
 final class YelpHomeViewCustomCell: UITableViewCell {
 
     @IBOutlet private(set) var locationContainer:UIView!
-    @IBOutlet private(set) var locationLabel:UIView!
-    @IBOutlet private(set) var businessImageView:UIView!
-    @IBOutlet private(set) var descriptionLabel:UIView!
+    @IBOutlet private(set) var locationLabel:UILabel!
+    @IBOutlet private(set) var businessImageView:UIImageView!
+    @IBOutlet private(set) var descriptionLabel:UILabel!
     
     
     
@@ -26,4 +26,16 @@ final class YelpHomeViewCustomCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+}
+
+extension YelpHomeViewCustomCell {
+    func configure(with model: BusinessViewModel){
+        locationLabel.text = model.location
+        //locationContainer.isHidden = model.location == nil
+        descriptionLabel.text = model.description
+        descriptionLabel.isHidden = model.description == nil
+        businessImageView.image = UIImage(named: model.imageUrl)
+    
+        
+    }
 }
