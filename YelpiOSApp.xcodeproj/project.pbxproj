@@ -18,6 +18,8 @@
 		059B9BAB29EC6FD700AD63E0 /* YelpHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B9BAA29EC6FD700AD63E0 /* YelpHomeViewController.swift */; };
 		059B9BAD29EC875D00AD63E0 /* YelpHomeViewModel+PrototypeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B9BAC29EC875D00AD63E0 /* YelpHomeViewModel+PrototypeData.swift */; };
 		059B9BAF29EC936700AD63E0 /* YelpHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B9BAE29EC936700AD63E0 /* YelpHomeViewModel.swift */; };
+		059B9BB429EC9A5400AD63E0 /* YelpHomeViewCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B9BB229EC9A5400AD63E0 /* YelpHomeViewCustomCell.swift */; };
+		059B9BB529EC9A5400AD63E0 /* YelpHomeViewCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 059B9BB329EC9A5400AD63E0 /* YelpHomeViewCustomCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		059B9BAA29EC6FD700AD63E0 /* YelpHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpHomeViewController.swift; sourceTree = "<group>"; };
 		059B9BAC29EC875D00AD63E0 /* YelpHomeViewModel+PrototypeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YelpHomeViewModel+PrototypeData.swift"; sourceTree = "<group>"; };
 		059B9BAE29EC936700AD63E0 /* YelpHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpHomeViewModel.swift; sourceTree = "<group>"; };
+		059B9BB229EC9A5400AD63E0 /* YelpHomeViewCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpHomeViewCustomCell.swift; sourceTree = "<group>"; };
+		059B9BB329EC9A5400AD63E0 /* YelpHomeViewCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YelpHomeViewCustomCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				059B9BAA29EC6FD700AD63E0 /* YelpHomeViewController.swift */,
+				059B9BB229EC9A5400AD63E0 /* YelpHomeViewCustomCell.swift */,
+				059B9BB329EC9A5400AD63E0 /* YelpHomeViewCustomCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -277,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				059B9BB529EC9A5400AD63E0 /* YelpHomeViewCustomCell.xib in Resources */,
 				059B9B8229EC67CA00AD63E0 /* LaunchScreen.storyboard in Resources */,
 				059B9B7F29EC67CA00AD63E0 /* Assets.xcassets in Resources */,
 				059B9B7D29EC67C900AD63E0 /* Main.storyboard in Resources */,
@@ -308,6 +315,7 @@
 				059B9BAD29EC875D00AD63E0 /* YelpHomeViewModel+PrototypeData.swift in Sources */,
 				059B9BAB29EC6FD700AD63E0 /* YelpHomeViewController.swift in Sources */,
 				059B9B7629EC67C900AD63E0 /* AppDelegate.swift in Sources */,
+				059B9BB429EC9A5400AD63E0 /* YelpHomeViewCustomCell.swift in Sources */,
 				059B9B7829EC67C900AD63E0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

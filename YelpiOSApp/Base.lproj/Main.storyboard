@@ -30,7 +30,7 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="580" id="OR5-D4-HfU">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusinessViewCell" rowHeight="580" id="OR5-D4-HfU" userLabel="BusinessViewCell" customClass="YelpHomeViewCustomCell" customModule="YelpiOSApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="122" width="393" height="580"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OR5-D4-HfU" id="wJY-Pl-DLI">
@@ -98,6 +98,12 @@ Location</string>
                                                 <constraint firstAttribute="bottomMargin" secondItem="4E9-q5-8gF" secondAttribute="bottom" priority="999" constant="6" id="ns8-oL-wcR"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="businessImageView" destination="i3C-Yb-zdT" id="sW9-uX-xwy"/>
+                                            <outlet property="descriptionLabel" destination="WAY-PP-uHC" id="5ce-sT-5oG"/>
+                                            <outlet property="locationContainer" destination="Gan-Qe-Iey" id="M2y-FL-EQj"/>
+                                            <outlet property="locationLabel" destination="tij-Dd-UA6" id="zqR-8C-alu"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellOne" id="w7Y-KA-bu1">
                                         <rect key="frame" x="0.0" y="702" width="393" height="43.666667938232422"/>

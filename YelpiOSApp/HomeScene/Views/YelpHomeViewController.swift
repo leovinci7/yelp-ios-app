@@ -36,7 +36,7 @@ extension YelpHomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FeedImageCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessViewCell")
         //let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCellOne")
         cell?.textLabel?.text = self.countryArray[indexPath.row]
         
