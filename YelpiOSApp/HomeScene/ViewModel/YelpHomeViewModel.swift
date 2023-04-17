@@ -20,6 +20,8 @@ class YelpHomeViewModel {
     private let apiClient: YelpAPIClientProtocol
     private(set) var businessFeed: [BusinessViewModel] = []
     
+    var onUpdate: (() -> Void)?
+    
     var numberOfRows: Int {
         return min(businessFeed.count, 10)
     }
@@ -32,7 +34,7 @@ class YelpHomeViewModel {
         apiClient.searchBusinesses(location: location, categories: categories, sortBy: sortBy, limit: limit) { [weak self] result in
             switch result {
             case .success(let businesses):
-               // self?.businessFeed = businesses.map { BusinessViewModel(from: $0) }
+                self?.businessFeed = businesses.map { BusinessViewModel(name: $0.name,imageUrl: $0.imageUrl,rating: $0.rating,location: $0.location.address1) }
                 completion(nil)
             case .failure(let error):
                 completion(error)
@@ -44,8 +46,9 @@ class YelpHomeViewModel {
         if !searchText.isEmpty {
             businessFeed = businessFeed.filter { $0.name.contains(searchText) }
         } else {
-            // Restore the original business feed, or call fetchBusinesses again
+            
         }
+        onUpdate?()
     }
     
     func businessViewModel(at indexPath: IndexPath) -> BusinessViewModel {
