@@ -11,8 +11,10 @@ final class YelpHomeViewCustomCell: UITableViewCell {
 
     @IBOutlet private(set) var locationContainer:UIView!
     @IBOutlet private(set) var locationLabel:UILabel!
+    @IBOutlet private(set) var nameLabel:UILabel!
     @IBOutlet private(set) var businessImageView:UIImageView!
     @IBOutlet private(set) var descriptionLabel:UILabel!
+    
     
     
     
@@ -31,10 +33,10 @@ final class YelpHomeViewCustomCell: UITableViewCell {
 extension YelpHomeViewCustomCell {
     func configure(with model: BusinessViewModel){
         locationLabel.text = model.location
+        nameLabel.text = model.name
         //locationContainer.isHidden = model.location == nil
         descriptionLabel.text = ViewHelper.starRatingString(rating: model.rating)
-        businessImageView.image = UIImage(named: model.imageUrl)
+       // businessImageView.image = UIImage(named: model.imageUrl)
     
-        
     }
 }
