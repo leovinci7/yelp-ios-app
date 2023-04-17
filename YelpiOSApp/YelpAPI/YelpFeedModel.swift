@@ -4,17 +4,17 @@
 //
 //  Created by Medhad Ashraf Islam on 16/4/23.
 //
-struct YelpBusinessesResponse: Codable {
+public struct SearchBusinessesResponse: Codable {
     let businesses: [Business]
 }
 
-struct Business: Codable {
-    let id: String
-    let name: String
-    let imageUrl: String
-    let rating: Double
-    let reviewCount: Int
-    let location: Location
+public struct Business: Codable {
+    public let id: String
+    public let name: String
+    public let imageUrl: String
+    public let rating: Double
+    public let reviewCount: Int
+    public let location: Location
     
     private enum CodingKeys: String, CodingKey {
         case id, name, rating, location
@@ -23,18 +23,18 @@ struct Business: Codable {
     }
 }
 
-struct BusinessDetails: Codable {
-    let id: String
-    let name: String
-    let imageUrl: String
-    let rating: Double
-    let reviewCount: Int
-    let price: String?
-    let phone: String
-    let location: Location
-    let photos: [String]?
-    let categories: [Category]
-    let hours: [Hours]?
+public struct BusinessDetails: Codable {
+    public let id: String
+    public let name: String
+    public let imageUrl: String
+    public let rating: Double
+    public let reviewCount: Int
+    public let price: String?
+    public let phone: String
+    public let location: Location
+    public let photos: [String]?
+    public let categories: [Category]
+    public let hours: [Hours]?
     
     private enum CodingKeys: String, CodingKey {
         case id, name, rating, location, phone, categories, hours, price, photos
@@ -43,7 +43,7 @@ struct BusinessDetails: Codable {
     }
 }
 
-struct Location: Codable {
+public struct Location: Codable {
     let address1: String
     let address2: String?
     let address3: String?
@@ -61,12 +61,12 @@ struct Location: Codable {
     }
 }
 
-struct Category: Codable {
+public struct Category: Codable {
     let alias: String
     let title: String
 }
 
-struct Hours: Codable {
+public struct Hours: Codable {
     let open: [OpenHours]
     let hoursType: String
     let isOpenNow: Bool

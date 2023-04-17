@@ -8,7 +8,7 @@
 import Foundation
 
 // URLSessionProtocol
-protocol URLSessionProtocol {
+public protocol URLSessionProtocol {
     func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
 }
 
@@ -16,7 +16,7 @@ protocol URLSessionProtocol {
 extension URLSession: URLSessionProtocol { }
 
 // YelpAPIClient
-class YelpAPIClient: YelpAPIClientProtocol {
+public class YelpAPIClient: YelpAPIClientProtocol {
     private let session: URLSessionProtocol
     private let baseURL = "https://api.yelp.com/v3/businesses"
     private let apiKey:String
@@ -29,12 +29,12 @@ class YelpAPIClient: YelpAPIClientProtocol {
     }
     
     
-    init(session: URLSessionProtocol = URLSession.shared, apiKey:String) {
+   public init(session: URLSessionProtocol = URLSession.shared, apiKey:String) {
         self.session = session
         self.apiKey = apiKey
     }
     
-    func getBusinessDetails(businessId: String, completion: @escaping (Result<BusinessDetails, Error>) -> Void) {
+    public func getBusinessDetails(businessId: String, completion: @escaping (Result<BusinessDetails, Error>) -> Void) {
         let url = URL(string: "\(baseURL)/\(businessId)")!
         var request = URLRequest(url: url)
         request.addValue("Bearer \(self.apiKey)", forHTTPHeaderField: "Authorization")
@@ -69,7 +69,7 @@ class YelpAPIClient: YelpAPIClientProtocol {
         }.resume()
     }
     
-    func searchBusinesses(location: String, categories: String, sortBy: String, limit: Int, completion: @escaping (Result<[Business], Error>) -> Void) {
+    public func searchBusinesses(location: String, categories: String, sortBy: String, limit: Int, completion: @escaping (Result<[Business], Error>) -> Void) {
         var urlComponents = URLComponents(string: "\(baseURL)/search")!
         urlComponents.queryItems = [
             URLQueryItem(name: "location", value: location),
@@ -103,8 +103,8 @@ class YelpAPIClient: YelpAPIClientProtocol {
             }
             
             do {
-                let businesses = try JSONDecoder().decode([Business].self, from: data)
-                    completion(.success(businesses))
+                let searchBusinessResponse = try JSONDecoder().decode(SearchBusinessesResponse.self, from: data)
+                completion(.success(searchBusinessResponse.businesses))
                 } catch {
                     completion(.failure(error))
             }

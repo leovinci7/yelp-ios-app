@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol YelpAPIClientProtocol {
+public protocol YelpAPIClientProtocol {
        func searchBusinesses(location: String, categories: String, sortBy: String, limit: Int, completion: @escaping (Result<[Business], Error>) -> Void)
        func getBusinessDetails(businessId: String, completion: @escaping (Result<BusinessDetails, Error>) -> Void)
    }
