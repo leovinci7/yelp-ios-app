@@ -20,7 +20,6 @@ extension BusinessViewModel {
                 name:"Cannon Street",
                 imageUrl: "image-1",
                 rating:3.0,
-                // description: nil,
                 location: "Cannon Street, London"
                 
             ),
@@ -28,7 +27,6 @@ extension BusinessViewModel {
                 name:"East Side Gallery",
                 imageUrl: "image-2",
                 rating:3.5,
-               // description: "The Desert Island in Faro is beautiful!! ☀️",
                 location: "East Side Gallery\nMemorial in Berlin, Germany"
                 
             ),
@@ -36,7 +34,6 @@ extension BusinessViewModel {
                 name:"The East Side",
                 imageUrl: "image-3",
                 rating:2.0,
-               // description: nil,
                 location: "East Side Gallery\nMemorial in Berlin, Germany"
                 
             ),
@@ -44,7 +41,6 @@ extension BusinessViewModel {
                 name:"Garth Pier",
                 imageUrl: "image-4",
                 rating:2.5,
-               // description: "Garth Pier is a Grade II listed structure in Bangor, Gwynedd, North Wales. At 1,500 feet in length, it is the second-longest pier in Wales, and the ninth longest in the British Isles.",
                 location: "Garth Pier\nNorth Wales"
                
             ),
@@ -52,7 +48,6 @@ extension BusinessViewModel {
                 name:"Brighton Seafront",
                 imageUrl: "image-5",
                 rating:5.0,
-               // description: "Glorious day in Brighton!! 🎢",
                 location: "Brighton Seafront"
                
             )
