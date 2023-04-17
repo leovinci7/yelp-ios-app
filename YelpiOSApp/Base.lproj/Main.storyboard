@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="115" width="393" height="703"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="Q0u-dh-Oys">
-                                    <rect key="frame" x="0.0" y="701.66666793823242" width="393" height="128"/>
+                                    <rect key="frame" x="0.0" y="658" width="393" height="128"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
@@ -110,14 +110,6 @@ Location</string>
                                             <outlet property="locationLabel" destination="tij-Dd-UA6" id="9dA-DV-SAf"/>
                                             <outlet property="nameLabel" destination="UTX-Xh-w6B" id="uAe-w1-xBO"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellOne" id="w7Y-KA-bu1">
-                                        <rect key="frame" x="0.0" y="630" width="393" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w7Y-KA-bu1" id="q32-aV-sIt">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
