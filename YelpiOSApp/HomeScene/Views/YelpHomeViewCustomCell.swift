@@ -34,8 +34,8 @@ extension YelpHomeViewCustomCell {
     func configure(with model: BusinessViewModel){
         locationLabel.text = model.location
         nameLabel.text = model.name
-        //locationContainer.isHidden = model.location == nil
-        descriptionLabel.text = ViewHelper.starRatingString(rating: model.rating)
+        //descriptionLabel.text = ViewHelper.starRatingString(rating: model.rating)
+        descriptionLabel.text = "★ \(String(model.rating)) (\(model.reviewCount) Reviews)"
        // businessImageView.image = UIImage(named: model.imageUrl)
     
         
