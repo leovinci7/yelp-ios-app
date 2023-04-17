@@ -47,10 +47,11 @@ class YelpHomeViewModel {
     func searchBusinesses(searchText: String) {
         if !searchText.isEmpty {
             businessFeed = businessFeed.filter { $0.name.contains(searchText) }
+            
         } else {
             
         }
-        onUpdate?()
+       // onUpdate?()
     }
     
     func businessViewModel(at indexPath: IndexPath) -> BusinessViewModel {

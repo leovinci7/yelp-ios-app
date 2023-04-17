@@ -67,7 +67,17 @@ extension YelpHomeViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if(searchText != ""){
             
-            viewModel.searchBusinesses(searchText: searchText)
+           // viewModel.searchBusinesses(searchText: searchText)
+            viewModel.fetchBusinesses(term: searchText, location: "Toronto", categories: "restaurants", sortBy: "best_match", limit: 10)
+            { [weak self] error in
+                        if let error = error {
+                            print("Error fetching businesses: \(error.localizedDescription)")
+                        } else {
+                            DispatchQueue.main.async {
+                                self?.tableView.reloadData()
+                            }
+                        }
+                    }
         }
             
 //            self.businessFeed = BusinessViewModel.prototypeFeed.filter({
