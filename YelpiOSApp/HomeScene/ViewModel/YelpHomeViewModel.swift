@@ -11,6 +11,7 @@ struct BusinessViewModel {
     let name: String
     let imageUrl: String
     let rating: Double
+    let reviewCount: Int
     //let description: String?
     let location: String
    
@@ -30,11 +31,12 @@ class YelpHomeViewModel {
         self.apiClient = apiClient
     }
     
-    func fetchBusinesses(location: String, categories: String, sortBy: String, limit: Int, completion: @escaping (Error?) -> Void) {
-        apiClient.searchBusinesses(location: location, categories: categories, sortBy: sortBy, limit: limit) { [weak self] result in
+    func fetchBusinesses(term:String, location: String, categories: String, sortBy: String, limit: Int, completion: @escaping (Error?) -> Void) {
+        
+        apiClient.searchBusinesses(term: term, longitude: nil, latitude: nil, location: location, categories: categories, sortBy: sortBy, limit: limit) { [weak self] result in
             switch result {
             case .success(let businesses):
-                self?.businessFeed = businesses.map { BusinessViewModel(name: $0.name,imageUrl: $0.imageUrl,rating: $0.rating,location: $0.location.address1) }
+                self?.businessFeed = businesses.map { BusinessViewModel(name: $0.name,imageUrl: $0.imageUrl,rating: $0.rating, reviewCount: $0.reviewCount, location: $0.location.address1) }
                 completion(nil)
             case .failure(let error):
                 completion(error)

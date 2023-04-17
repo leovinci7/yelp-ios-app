@@ -38,5 +38,6 @@ extension YelpHomeViewCustomCell {
         descriptionLabel.text = ViewHelper.starRatingString(rating: model.rating)
        // businessImageView.image = UIImage(named: model.imageUrl)
     
+        
     }
 }

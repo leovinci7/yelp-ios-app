@@ -17,6 +17,7 @@ extension URLSession: URLSessionProtocol { }
 
 // YelpAPIClient
 public class YelpAPIClient: YelpAPIClientProtocol {
+    
     private let session: URLSessionProtocol
     private let baseURL = "https://api.yelp.com/v3/businesses"
     private let apiKey:String
@@ -69,14 +70,24 @@ public class YelpAPIClient: YelpAPIClientProtocol {
         }.resume()
     }
     
-    public func searchBusinesses(location: String, categories: String, sortBy: String, limit: Int, completion: @escaping (Result<[Business], Error>) -> Void) {
+    public func searchBusinesses(term: String, longitude:Double? = nil, latitude: Double? = nil, location: String? = nil, categories: String, sortBy: String, limit: Int, completion: @escaping (Result<[Business], Error>) -> Void) {
         var urlComponents = URLComponents(string: "\(baseURL)/search")!
+       
         urlComponents.queryItems = [
-            URLQueryItem(name: "location", value: location),
+            URLQueryItem(name: "term", value: term),
             URLQueryItem(name: "categories", value: categories),
             URLQueryItem(name: "sort_by", value: sortBy),
             URLQueryItem(name: "limit", value: String(limit))
         ]
+        
+        if let unwrappedLocation = location {
+            urlComponents.queryItems?.append(URLQueryItem(name: "location", value: String(unwrappedLocation)))
+        }
+        //latitude, longitude will get preference over location if provided
+        if let unwrappedLatitude = latitude, let unwrappedLongitude = longitude {
+            urlComponents.queryItems?.append(URLQueryItem(name: "latitude", value: String(unwrappedLatitude)))
+            urlComponents.queryItems?.append(URLQueryItem(name: "longitude", value: String(unwrappedLongitude)))
+        }
         
         var request = URLRequest(url: urlComponents.url!)
         request.addValue("Bearer \(self.apiKey)", forHTTPHeaderField: "Authorization")

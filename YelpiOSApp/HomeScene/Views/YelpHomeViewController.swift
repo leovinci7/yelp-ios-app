@@ -29,7 +29,7 @@ class YelpHomeViewController: UIViewController {
             }
         }
         
-        viewModel.fetchBusinesses(location: "Toronto", categories: "restaurants", sortBy: "best_match", limit: 10)
+        viewModel.fetchBusinesses(term: "Italian", location: "Toronto", categories: "restaurants", sortBy: "best_match", limit: 10)
         { [weak self] error in
                     if let error = error {
                         print("Error fetching businesses: \(error.localizedDescription)")
