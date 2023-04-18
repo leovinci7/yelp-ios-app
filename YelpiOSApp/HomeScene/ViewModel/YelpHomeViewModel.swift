@@ -12,7 +12,6 @@ struct BusinessViewModel {
     let imageUrl: String
     let rating: Double
     let reviewCount: Int
-    //let description: String?
     let location: String
    
 }
