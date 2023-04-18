@@ -16,15 +16,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="p8s-We-bFK">
-                                <rect key="frame" x="0.0" y="59" width="393" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="0Xq-fM-qMU" id="e2w-8D-5uv"/>
-                                </connections>
-                            </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JYc-p5-kh0" userLabel="Search View">
+                                <rect key="frame" x="0.0" y="79" width="393" height="100"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" text="" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="p8s-We-bFK">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="0Xq-fM-qMU" id="e2w-8D-5uv"/>
+                                        </connections>
+                                    </searchBar>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Xir-5A-uCP">
+                                        <rect key="frame" x="2" y="58" width="389" height="32"/>
+                                        <segments>
+                                            <segment title="best match"/>
+                                            <segment title="rating"/>
+                                            <segment title="review count"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Xir-5A-uCP" firstAttribute="leading" secondItem="JYc-p5-kh0" secondAttribute="leading" constant="2" id="FaJ-ap-Zta"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xir-5A-uCP" secondAttribute="trailing" constant="2" id="KYy-3e-Nfc"/>
+                                    <constraint firstItem="Xir-5A-uCP" firstAttribute="top" secondItem="p8s-We-bFK" secondAttribute="bottom" constant="2" id="N1D-kn-Zxw"/>
+                                    <constraint firstAttribute="trailing" secondItem="p8s-We-bFK" secondAttribute="trailing" id="NfH-IY-lwX"/>
+                                    <constraint firstAttribute="height" constant="100" id="TVE-VQ-Q4q"/>
+                                    <constraint firstItem="p8s-We-bFK" firstAttribute="leading" secondItem="JYc-p5-kh0" secondAttribute="leading" id="jVJ-Ys-A8y"/>
+                                    <constraint firstItem="p8s-We-bFK" firstAttribute="top" secondItem="JYc-p5-kh0" secondAttribute="top" id="kjg-fK-XKz"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vzE-do-oKz">
-                                <rect key="frame" x="0.0" y="115" width="393" height="703"/>
+                                <rect key="frame" x="0.0" y="179" width="393" height="639"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="Q0u-dh-Oys">
                                     <rect key="frame" x="0.0" y="658" width="393" height="128"/>
@@ -124,12 +147,12 @@ Location</string>
                         <viewLayoutGuide key="safeArea" id="aUd-o4-cQS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="p8s-We-bFK" firstAttribute="trailing" secondItem="vzE-do-oKz" secondAttribute="trailing" id="Ggk-ma-TlJ"/>
-                            <constraint firstItem="p8s-We-bFK" firstAttribute="top" secondItem="aUd-o4-cQS" secondAttribute="top" id="L7A-rK-DxW"/>
-                            <constraint firstItem="vzE-do-oKz" firstAttribute="top" secondItem="p8s-We-bFK" secondAttribute="bottom" id="TZu-cE-3GG"/>
-                            <constraint firstItem="p8s-We-bFK" firstAttribute="leading" secondItem="vzE-do-oKz" secondAttribute="leading" id="a2f-lE-8m2"/>
-                            <constraint firstItem="aUd-o4-cQS" firstAttribute="bottom" secondItem="vzE-do-oKz" secondAttribute="bottom" id="sCf-FW-YRk"/>
+                            <constraint firstItem="JYc-p5-kh0" firstAttribute="trailing" secondItem="aUd-o4-cQS" secondAttribute="trailing" id="UK1-8p-p8k"/>
+                            <constraint firstItem="vzE-do-oKz" firstAttribute="top" secondItem="JYc-p5-kh0" secondAttribute="bottom" id="gxc-eh-PaT"/>
+                            <constraint firstItem="vzE-do-oKz" firstAttribute="bottom" secondItem="aUd-o4-cQS" secondAttribute="bottom" id="sCf-FW-YRk"/>
+                            <constraint firstItem="JYc-p5-kh0" firstAttribute="leading" secondItem="aUd-o4-cQS" secondAttribute="leading" id="sxf-hu-39w"/>
                             <constraint firstItem="aUd-o4-cQS" firstAttribute="trailing" secondItem="vzE-do-oKz" secondAttribute="trailing" id="vGV-uM-7LL"/>
+                            <constraint firstItem="JYc-p5-kh0" firstAttribute="top" secondItem="aUd-o4-cQS" secondAttribute="top" constant="20" id="vm9-ph-jtB"/>
                             <constraint firstItem="vzE-do-oKz" firstAttribute="leading" secondItem="aUd-o4-cQS" secondAttribute="leading" id="ywb-Mo-9Yp"/>
                         </constraints>
                     </view>
@@ -140,7 +163,7 @@ Location</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sfi-HQ-ytR" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="815" y="-182"/>
+            <point key="canvasLocation" x="814.50381679389307" y="-182.3943661971831"/>
         </scene>
     </scenes>
     <resources>
