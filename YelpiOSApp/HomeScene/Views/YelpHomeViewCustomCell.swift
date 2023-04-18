@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class YelpHomeViewCustomCell: UITableViewCell {
 
@@ -28,6 +29,16 @@ final class YelpHomeViewCustomCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func fadeIn() {
+        self.businessImageView.alpha = 0
+            UIView.animate(
+                withDuration: 0.3,
+                delay: 0.2,
+                animations: {
+                    self.businessImageView.alpha = 1
+            })
+        }
+    
 }
 
 extension YelpHomeViewCustomCell {
@@ -37,6 +48,8 @@ extension YelpHomeViewCustomCell {
         //descriptionLabel.text = ViewHelper.starRatingString(rating: model.rating)
         descriptionLabel.text = "★ \(String(model.rating)) (\(model.reviewCount) Reviews)"
        // businessImageView.image = UIImage(named: model.imageUrl)
+        businessImageView.sd_setImage(with: URL(string: model.imageUrl), placeholderImage: UIImage(named: "placeholder.png"))
+        businessImageView.contentMode = .scaleAspectFill
     
         
     }

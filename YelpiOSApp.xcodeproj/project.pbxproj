@@ -26,6 +26,7 @@
 		059B9BC129ECC75200AD63E0 /* ViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B9BC029ECC75200AD63E0 /* ViewHelper.swift */; };
 		059B9BC329ECD83400AD63E0 /* YelpAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B9BC229ECD83400AD63E0 /* YelpAPIClientTests.swift */; };
 		059B9BC529ED25E000AD63E0 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B9BC429ED25E000AD63E0 /* APIKey.swift */; };
+		059B9BC829EE746400AD63E0 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 059B9BC729EE746400AD63E0 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				059B9BC829EE746400AD63E0 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +223,9 @@
 			dependencies = (
 			);
 			name = YelpiOSApp;
+			packageProductDependencies = (
+				059B9BC729EE746400AD63E0 /* SDWebImage */,
+			);
 			productName = YelpiOSApp;
 			productReference = 059B9B7229EC67C900AD63E0 /* YelpiOSApp.app */;
 			productType = "com.apple.product-type.application";
@@ -293,6 +298,9 @@
 				Base,
 			);
 			mainGroup = 059B9B6929EC67C900AD63E0;
+			packageReferences = (
+				059B9BC629EE746400AD63E0 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 059B9B7329EC67C900AD63E0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -684,6 +692,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		059B9BC629EE746400AD63E0 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.9.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		059B9BC729EE746400AD63E0 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 059B9BC629EE746400AD63E0 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 059B9B6A29EC67C900AD63E0 /* Project object */;
 }

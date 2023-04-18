@@ -13,6 +13,7 @@ class YelpHomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sortControlView: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
+    var activityIndicator: UIActivityIndicatorView!
     
     
     //var businessFeed = BusinessViewModel.prototypeFeed
@@ -27,6 +28,12 @@ class YelpHomeViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.text = defaultSearchText
+        
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        view.addSubview(activityIndicator)
+        
         viewModel = YelpHomeViewModel(apiClient: self.yelpAPIClient)
         viewModel.onUpdate = { [weak self] in
             DispatchQueue.main.async {
@@ -34,6 +41,7 @@ class YelpHomeViewController: UIViewController {
             }
         }
         let sortValue = getSortValue(for: sortControlView.selectedSegmentIndex)
+        
         reloadDataWith(term: defaultSearchText, sort: sortValue)
        
     }
@@ -56,6 +64,7 @@ extension YelpHomeViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessViewCell") as! YelpHomeViewCustomCell
         let model = viewModel.businessFeed[indexPath.row]
         cell.configure(with: model)
+        cell.fadeIn()
         return cell
     }
 }
@@ -77,6 +86,7 @@ extension YelpHomeViewController {
     
     func reloadDataWith(term searchText : String, sort sortValue: SortBy){
         
+        activityIndicator.startAnimating()
         viewModel.fetchBusinesses(term: searchText, location: "Toronto", categories: "restaurants", sortBy: sortValue, limit: 10)
         { [weak self] error in
             if let error = error {
@@ -84,6 +94,7 @@ extension YelpHomeViewController {
             } else {
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
+                    self?.activityIndicator.stopAnimating()
                 }
             }
         }
