@@ -31,7 +31,7 @@ class YelpHomeViewModel {
         self.apiClient = apiClient
     }
     
-    func fetchBusinesses(term:String, location: String, categories: String, sortBy: String, limit: Int, completion: @escaping (Error?) -> Void) {
+    func fetchBusinesses(term:String, location: String, categories: String, sortBy: SortBy, limit: Int, completion: @escaping (Error?) -> Void) {
         
         apiClient.searchBusinesses(term: term, longitude: nil, latitude: nil, location: location, categories: categories, sortBy: sortBy, limit: limit) { [weak self] result in
             switch result {

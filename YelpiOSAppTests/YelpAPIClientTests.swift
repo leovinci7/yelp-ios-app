@@ -34,7 +34,7 @@ final class YelpAPIClientTests: XCTestCase {
     
     func testSearchBusinesses() {
            let expectation = self.expectation(description: "Search businesses")
-        apiClient.searchBusinesses(term: "Italian", location: "Toronto", categories: "restaurants", sortBy: "best_match", limit: 10) { result in
+        apiClient.searchBusinesses(term: "Italian", location: "Toronto", categories: "restaurants", sortBy: .bestMatch, limit: 10) { result in
                switch result {
                case .success(let businesses):
                    XCTAssertNotNil(businesses)

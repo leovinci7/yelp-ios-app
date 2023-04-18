@@ -70,13 +70,13 @@ public class YelpAPIClient: YelpAPIClientProtocol {
         }.resume()
     }
     
-    public func searchBusinesses(term: String, longitude:Double? = nil, latitude: Double? = nil, location: String? = nil, categories: String, sortBy: String, limit: Int, completion: @escaping (Result<[Business], Error>) -> Void) {
+    public func searchBusinesses(term: String, longitude:Double? = nil, latitude: Double? = nil, location: String? = nil, categories: String, sortBy: SortBy = .bestMatch, limit: Int, completion: @escaping (Result<[Business], Error>) -> Void) {
         var urlComponents = URLComponents(string: "\(baseURL)/search")!
        
         urlComponents.queryItems = [
             URLQueryItem(name: "term", value: term),
             URLQueryItem(name: "categories", value: categories),
-            URLQueryItem(name: "sort_by", value: sortBy),
+            URLQueryItem(name: "sort_by", value: sortBy.rawValue),
             URLQueryItem(name: "limit", value: String(limit))
         ]
         

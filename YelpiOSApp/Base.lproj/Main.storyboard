@@ -26,13 +26,16 @@
                                             <outlet property="delegate" destination="0Xq-fM-qMU" id="e2w-8D-5uv"/>
                                         </connections>
                                     </searchBar>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Xir-5A-uCP">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Xir-5A-uCP" userLabel="sorting control">
                                         <rect key="frame" x="2" y="58" width="389" height="32"/>
                                         <segments>
                                             <segment title="best match"/>
                                             <segment title="rating"/>
                                             <segment title="review count"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="sortControlValueChanged:" destination="0Xq-fM-qMU" eventType="valueChanged" id="Jkq-g5-KRL"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -158,6 +161,8 @@ Location</string>
                     </view>
                     <navigationItem key="navigationItem" id="YPU-EV-q6G"/>
                     <connections>
+                        <outlet property="searchBar" destination="p8s-We-bFK" id="4jg-QC-tjd"/>
+                        <outlet property="sortControlView" destination="Xir-5A-uCP" id="lC7-h8-L9A"/>
                         <outlet property="tableView" destination="vzE-do-oKz" id="wSm-AF-f5Q"/>
                     </connections>
                 </viewController>
