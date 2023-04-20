@@ -30,6 +30,7 @@
 		059B9BCC29F0E69A00AD63E0 /* YelpBusinessDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B9BCB29F0E69A00AD63E0 /* YelpBusinessDetailViewController.swift */; };
 		059B9BCE29F0E6E100AD63E0 /* YelpBusinessDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B9BCD29F0E6E100AD63E0 /* YelpBusinessDetailViewModel.swift */; };
 		059B9BD529F1051400AD63E0 /* BusinessDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 059B9BD429F1051400AD63E0 /* BusinessDetail.storyboard */; };
+		059B9BD829F10C9300AD63E0 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 059B9BD729F10C9300AD63E0 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				059B9BD829F10C9300AD63E0 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +113,7 @@
 				059B9B8B29EC67CA00AD63E0 /* YelpiOSAppTests */,
 				059B9B9529EC67CA00AD63E0 /* YelpiOSAppUITests */,
 				059B9B7329EC67C900AD63E0 /* Products */,
+				059B9BD629F10C9300AD63E0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -232,6 +235,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		059B9BD629F10C9300AD63E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -269,6 +279,9 @@
 				059B9B8A29EC67CA00AD63E0 /* PBXTargetDependency */,
 			);
 			name = YelpiOSAppTests;
+			packageProductDependencies = (
+				059B9BD729F10C9300AD63E0 /* SDWebImage */,
+			);
 			productName = YelpiOSAppTests;
 			productReference = 059B9B8829EC67CA00AD63E0 /* YelpiOSAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -734,6 +747,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		059B9BC729EE746400AD63E0 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 059B9BC629EE746400AD63E0 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		059B9BD729F10C9300AD63E0 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 059B9BC629EE746400AD63E0 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
