@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         // Load the root view controller from the storyboard
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: "Home", bundle: nil)
             let rootVC = storyboard.instantiateViewController(withIdentifier: "YelpHomeViewController")
             let navController = UINavigationController(rootViewController: rootVC)
             window.makeKeyAndVisible()

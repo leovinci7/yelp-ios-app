@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		059B9B7629EC67C900AD63E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B9B7529EC67C900AD63E0 /* AppDelegate.swift */; };
 		059B9B7829EC67C900AD63E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B9B7729EC67C900AD63E0 /* SceneDelegate.swift */; };
-		059B9B7D29EC67C900AD63E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 059B9B7B29EC67C900AD63E0 /* Main.storyboard */; };
+		059B9B7D29EC67C900AD63E0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 059B9B7B29EC67C900AD63E0 /* Home.storyboard */; };
 		059B9B7F29EC67CA00AD63E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 059B9B7E29EC67CA00AD63E0 /* Assets.xcassets */; };
 		059B9B8229EC67CA00AD63E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 059B9B8029EC67CA00AD63E0 /* LaunchScreen.storyboard */; };
 		059B9B8D29EC67CA00AD63E0 /* YelpiOSAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B9B8C29EC67CA00AD63E0 /* YelpiOSAppTests.swift */; };
@@ -27,6 +27,8 @@
 		059B9BC329ECD83400AD63E0 /* YelpAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B9BC229ECD83400AD63E0 /* YelpAPIClientTests.swift */; };
 		059B9BC529ED25E000AD63E0 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B9BC429ED25E000AD63E0 /* APIKey.swift */; };
 		059B9BC829EE746400AD63E0 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 059B9BC729EE746400AD63E0 /* SDWebImage */; };
+		059B9BCC29F0E69A00AD63E0 /* YelpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B9BCB29F0E69A00AD63E0 /* YelpDetailViewController.swift */; };
+		059B9BCE29F0E6E100AD63E0 /* YelpDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B9BCD29F0E6E100AD63E0 /* YelpDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +52,7 @@
 		059B9B7229EC67C900AD63E0 /* YelpiOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YelpiOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		059B9B7529EC67C900AD63E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		059B9B7729EC67C900AD63E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		059B9B7C29EC67C900AD63E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		059B9B7C29EC67C900AD63E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		059B9B7E29EC67CA00AD63E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		059B9B8129EC67CA00AD63E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		059B9B8329EC67CA00AD63E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,6 +72,8 @@
 		059B9BC029ECC75200AD63E0 /* ViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelper.swift; sourceTree = "<group>"; };
 		059B9BC229ECD83400AD63E0 /* YelpAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpAPIClientTests.swift; sourceTree = "<group>"; };
 		059B9BC429ED25E000AD63E0 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		059B9BCB29F0E69A00AD63E0 /* YelpDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpDetailViewController.swift; sourceTree = "<group>"; };
+		059B9BCD29F0E6E100AD63E0 /* YelpDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +131,6 @@
 				059B9BA529EC6F4000AD63E0 /* HomeScene */,
 				059B9B7529EC67C900AD63E0 /* AppDelegate.swift */,
 				059B9B7729EC67C900AD63E0 /* SceneDelegate.swift */,
-				059B9B7B29EC67C900AD63E0 /* Main.storyboard */,
 				059B9B7E29EC67CA00AD63E0 /* Assets.xcassets */,
 				059B9B8029EC67CA00AD63E0 /* LaunchScreen.storyboard */,
 				059B9B8329EC67CA00AD63E0 /* Info.plist */,
@@ -165,6 +168,8 @@
 		059B9BA629EC6F4F00AD63E0 /* DetailScene */ = {
 			isa = PBXGroup;
 			children = (
+				059B9BCA29F0E5E400AD63E0 /* ViewModel */,
+				059B9BC929F0E5CC00AD63E0 /* Views */,
 			);
 			path = DetailScene;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 				059B9BAA29EC6FD700AD63E0 /* YelpHomeViewController.swift */,
 				059B9BB229EC9A5400AD63E0 /* YelpHomeViewCustomCell.swift */,
 				059B9BB329EC9A5400AD63E0 /* YelpHomeViewCustomCell.xib */,
+				059B9B7B29EC67C900AD63E0 /* Home.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,6 +211,22 @@
 				059B9BC429ED25E000AD63E0 /* APIKey.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		059B9BC929F0E5CC00AD63E0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				059B9BCB29F0E69A00AD63E0 /* YelpDetailViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		059B9BCA29F0E5E400AD63E0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				059B9BCD29F0E6E100AD63E0 /* YelpDetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,7 +342,7 @@
 				059B9BB529EC9A5400AD63E0 /* YelpHomeViewCustomCell.xib in Resources */,
 				059B9B8229EC67CA00AD63E0 /* LaunchScreen.storyboard in Resources */,
 				059B9B7F29EC67CA00AD63E0 /* Assets.xcassets in Resources */,
-				059B9B7D29EC67C900AD63E0 /* Main.storyboard in Resources */,
+				059B9B7D29EC67C900AD63E0 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,9 +373,11 @@
 				059B9BAB29EC6FD700AD63E0 /* YelpHomeViewController.swift in Sources */,
 				059B9BB829ECB7D600AD63E0 /* YelpAPIProtocol.swift in Sources */,
 				059B9B7629EC67C900AD63E0 /* AppDelegate.swift in Sources */,
+				059B9BCE29F0E6E100AD63E0 /* YelpDetailViewModel.swift in Sources */,
 				059B9BC529ED25E000AD63E0 /* APIKey.swift in Sources */,
 				059B9BBA29ECB7F700AD63E0 /* YelpFeedModel.swift in Sources */,
 				059B9BC129ECC75200AD63E0 /* ViewHelper.swift in Sources */,
+				059B9BCC29F0E69A00AD63E0 /* YelpDetailViewController.swift in Sources */,
 				059B9BB429EC9A5400AD63E0 /* YelpHomeViewCustomCell.swift in Sources */,
 				059B9B7829EC67C900AD63E0 /* SceneDelegate.swift in Sources */,
 			);
@@ -393,12 +417,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		059B9B7B29EC67C900AD63E0 /* Main.storyboard */ = {
+		059B9B7B29EC67C900AD63E0 /* Home.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				059B9B7C29EC67C900AD63E0 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Home.storyboard;
 			sourceTree = "<group>";
 		};
 		059B9B8029EC67CA00AD63E0 /* LaunchScreen.storyboard */ = {
@@ -537,7 +561,7 @@
 				INFOPLIST_FILE = YelpiOSApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -564,7 +588,7 @@
 				INFOPLIST_FILE = YelpiOSApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
