@@ -24,7 +24,7 @@ class YelpHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Yelp"
+        title = "Yelp Home"
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.text = defaultSearchText
@@ -43,7 +43,7 @@ class YelpHomeViewController: UIViewController {
         let sortValue = getSortValue(for: sortControlView.selectedSegmentIndex)
         
         reloadDataWith(term: defaultSearchText, sort: sortValue)
-       
+        
     }
     
     @IBAction func sortControlValueChanged(_ sender: UISegmentedControl) {
@@ -66,6 +66,17 @@ extension YelpHomeViewController: UITableViewDelegate, UITableViewDataSource{
         cell.configure(with: model)
         cell.fadeIn()
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedItem = viewModel.businessFeed[indexPath.row].name
+        
+        let detailViewController = UIStoryboard(name: "BusinessDetail", bundle: nil).instantiateViewController(withIdentifier: "YelpBusinessDetailView") as! YelpBusinessDetailViewController
+        
+        detailViewController.selectedItem = selectedItem
+        
+        navigationController?.pushViewController(detailViewController, animated: true)
+        
     }
 }
 

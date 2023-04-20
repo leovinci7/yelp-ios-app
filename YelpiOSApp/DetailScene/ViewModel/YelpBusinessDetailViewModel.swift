@@ -12,7 +12,7 @@ struct BusinessDetailViewModel {
     
 }
 
-class YelpDetailViewModel {
+class YelpBusinessDetailViewModel {
     
     
     
