@@ -9,6 +9,7 @@ extension BusinessViewModel {
     static var prototypeFeed: [BusinessViewModel] {
         return [
             BusinessViewModel(
+                id: "1",
                 name:"The East Side",
                 imageUrl: "image-0",
                 rating:5.0,
@@ -18,6 +19,7 @@ extension BusinessViewModel {
                
             ),
             BusinessViewModel(
+                id: "2",
                 name:"Cannon Street",
                 imageUrl: "image-1",
                 rating:3.0,
@@ -26,6 +28,7 @@ extension BusinessViewModel {
                 
             ),
             BusinessViewModel(
+                id: "3",
                 name:"East Side Gallery",
                 imageUrl: "image-2",
                 rating:3.5,
@@ -34,6 +37,7 @@ extension BusinessViewModel {
                 
             ),
             BusinessViewModel(
+                id: "4",
                 name:"The East Side",
                 imageUrl: "image-3",
                 rating:2.0,
@@ -42,6 +46,7 @@ extension BusinessViewModel {
                 
             ),
             BusinessViewModel(
+                id: "5",
                 name:"Garth Pier",
                 imageUrl: "image-4",
                 rating:2.5,
@@ -50,6 +55,7 @@ extension BusinessViewModel {
                
             ),
             BusinessViewModel(
+                id: "6",
                 name:"Brighton Seafront",
                 imageUrl: "image-5",
                 rating:5.0,

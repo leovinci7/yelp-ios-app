@@ -8,6 +8,7 @@
 import Foundation
 
 struct BusinessViewModel {
+    let id: String 
     let name: String
     let imageUrl: String
     let rating: Double
@@ -35,7 +36,7 @@ class YelpHomeViewModel {
         apiClient.searchBusinesses(term: term, longitude: nil, latitude: nil, location: location, categories: categories, sortBy: sortBy, limit: limit) { [weak self] result in
             switch result {
             case .success(let businesses):
-                self?.businessFeed = businesses.map { BusinessViewModel(name: $0.name,imageUrl: $0.imageUrl,rating: $0.rating, reviewCount: $0.reviewCount, location: $0.location.address1) }
+                self?.businessFeed = businesses.map { BusinessViewModel(id: $0.id, name: $0.name,imageUrl: $0.imageUrl,rating: $0.rating, reviewCount: $0.reviewCount, location: $0.location.address1) }
                 completion(nil)
             case .failure(let error):
                 completion(error)
