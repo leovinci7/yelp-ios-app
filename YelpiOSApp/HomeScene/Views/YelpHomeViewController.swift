@@ -15,7 +15,6 @@ class YelpHomeViewController: BaseViewController{
     @IBOutlet weak var searchBar: UISearchBar!
     
     
-    //var businessFeed = BusinessViewModel.prototypeFeed
     var yelpAPIClient = YelpAPIClient(apiKey: APIKey.key)
     var viewModel:YelpHomeViewModel!
     let defaultSearchText = "Italian"
