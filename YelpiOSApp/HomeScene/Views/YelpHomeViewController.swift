@@ -8,12 +8,11 @@
 import Foundation
 import UIKit
 
-class YelpHomeViewController: UIViewController {
+class YelpHomeViewController: BaseViewController{
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sortControlView: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
-    var activityIndicator: UIActivityIndicatorView!
     
     
     //var businessFeed = BusinessViewModel.prototypeFeed
@@ -23,25 +22,14 @@ class YelpHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         title = "Yelp Home"
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.text = defaultSearchText
         
-        activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.center = view.center
-        activityIndicator.hidesWhenStopped = true
-        view.addSubview(activityIndicator)
-        
         viewModel = YelpHomeViewModel(apiClient: self.yelpAPIClient)
-        viewModel.onUpdate = { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-        }
         let sortValue = getSortValue(for: sortControlView.selectedSegmentIndex)
-        
         reloadDataWith(term: defaultSearchText, sort: sortValue)
         
     }

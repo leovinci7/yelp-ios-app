@@ -5,7 +5,6 @@
 //  Created by Medhad Ashraf Islam on 20/4/23.
 //
 
-import Foundation
 
 struct BusinessDetailViewModel {
     public let id: String
@@ -18,13 +17,14 @@ struct BusinessDetailViewModel {
     public let location: String
     public let photos: [String]?
     public let isOpenNow: Bool
+    public let categories: String
     
 }
 
 class YelpBusinessDetailViewModel {
     
     private let apiClient: YelpAPIClientProtocol
-    private(set) var businessDetailFeed: BusinessDetailViewModel?
+    private(set) var businessDetailFeed: BusinessDetailViewModel!
     
     var onUpdate: ((Error?) -> Void)?
     
@@ -46,7 +46,7 @@ class YelpBusinessDetailViewModel {
                                                              price: businessDetail.price,
                                                              phone: businessDetail.phone,
                                                              location: businessDetail.location.displayAddress.joined(separator: ","),
-                                                                   photos: businessDetail.photos, isOpenNow: businessDetail.hours?[0].isOpenNow ?? false)
+                                                                   photos: businessDetail.photos, isOpenNow: businessDetail.hours?[0].isOpenNow ?? false, categories: (self?.mapCategories(with: businessDetail.categories))!)
                 completion(nil)
                 
                 
@@ -60,5 +60,21 @@ class YelpBusinessDetailViewModel {
         
     }
     
+    private func mapCategories(with categories:[Category]) -> String {
+        var catString:String!
+        
+          if !categories.isEmpty {
+            catString = categories.map { $0.title }.joined(separator: ", ")
+        } else {
+            catString = "No Info"
+        }
+        
+        return catString
+        
+    }
+    
     
 }
+
+
+
