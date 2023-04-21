@@ -66,7 +66,7 @@ extension YelpBusinessDetailViewController {
                     
                     if let openStatus = businessDetailFeed?.isOpenNow {
                         self?.businessOpenStatus.text = openStatus ? "Open" : "Closed"
-                        self?.businessOpenStatus.textColor = openStatus ? .green : .red
+                        self?.businessOpenStatus.textColor = openStatus ? .systemGreen : .red
                     } else {
                         self?.businessOpenStatus.text = "No Info"
                         self?.businessOpenStatus.textColor = .red
