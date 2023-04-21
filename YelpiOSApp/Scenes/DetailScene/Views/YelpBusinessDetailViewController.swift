@@ -32,7 +32,6 @@ class YelpBusinessDetailViewController:BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Detail"
-        print("business detail view selected item: \(selectedItem ?? "")")
         viewModel = YelpBusinessDetailViewModel(apiClient: self.yelpAPIClient)
         configureDetailView()
 
@@ -49,8 +48,8 @@ extension YelpBusinessDetailViewController {
         viewModel.fetchBusinessDetailWithID(id: self.selectedItem){ [weak self] error in
             if let error = error {
                 print(error.localizedDescription)
-                self?.activityIndicator.stopAnimating()
                 DispatchQueue.main.async { [weak self] in
+                    self?.activityIndicator.stopAnimating()
                     self?.showErrorAlert(message: error.localizedDescription)
                 }
             }else {

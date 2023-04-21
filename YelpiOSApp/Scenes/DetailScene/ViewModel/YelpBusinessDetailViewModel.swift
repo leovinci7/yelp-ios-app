@@ -79,10 +79,6 @@ extension YelpBusinessDetailViewModel {
         let today = Calendar.current.component(.weekday, from: Date()) - 1
         if let hours = hours?[0].open,
            let todayHours = hours.first(where: { $0.day == today }) {
-            
-            print("Start time: \(todayHours.start)") // Debug: print start time
-            print("End time: \(todayHours.end)") // Debug: print end time
-            
             let formatter = DateFormatter()
             formatter.dateFormat = "HHmm"
             let start = formatter.date(from: todayHours.start) ?? Date()
