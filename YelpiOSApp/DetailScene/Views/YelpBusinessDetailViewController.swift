@@ -40,8 +40,31 @@ class YelpBusinessDetailViewController:UIViewController {
             }else {
                 DispatchQueue.main.async { [weak self] in
                     let businessDetailFeed = self?.viewModel.businessDetailFeed
+                    
                     self?.businessName.text = businessDetailFeed?.name
                     self?.mainBusinessImage.sd_setImage(with: URL(string: businessDetailFeed?.imageUrl ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
+                    
+                    if let openStatus = businessDetailFeed?.isOpenNow {
+                                    self?.businessOpenStatus.text = openStatus ? "Open" : "Closed"
+                                    self?.businessOpenStatus.textColor = openStatus ? .green : .red
+                                } else {
+                                    self?.businessOpenStatus.text = "No Info"
+                                    self?.businessOpenStatus.textColor = .red
+                                }
+                    
+                    // Load photos into imageOne, imageTwo, and imageThree
+                               if let photos = businessDetailFeed?.photos {
+                                   if let imageView = self?.imageOne, photos.indices.contains(0) {
+                                       imageView.sd_setImage(with: URL(string: photos[0]), placeholderImage: UIImage(named: "placeholder.png"))
+                                   }
+                                   if let imageView = self?.imageTwo, photos.indices.contains(1) {
+                                       imageView.sd_setImage(with: URL(string: photos[1]), placeholderImage: UIImage(named: "placeholder.png"))
+                                   }
+                                   if let imageView = self?.imageThree, photos.indices.contains(2) {
+                                       imageView.sd_setImage(with: URL(string: photos[2]), placeholderImage: UIImage(named: "placeholder.png"))
+                                   }
+                               }
+                    
                 }
                 
             }

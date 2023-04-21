@@ -20,6 +20,7 @@ struct BusinessViewModel {
 class YelpHomeViewModel {
     private let apiClient: YelpAPIClientProtocol
     private(set) var businessFeed: [BusinessViewModel] = []
+    private var currentWorkItem: DispatchWorkItem?
     
     var onUpdate: (() -> Void)?
     
@@ -41,21 +42,20 @@ class YelpHomeViewModel {
             case .failure(let error):
                 completion(error)
             }
+        
         }
+        
     }
     
-    func searchBusinesses(searchText: String) {
-        if !searchText.isEmpty {
-            businessFeed = businessFeed.filter { $0.name.contains(searchText) }
-            
-        } else {
-            
-        }
-       // onUpdate?()
-    }
     
-    func businessViewModel(at indexPath: IndexPath) -> BusinessViewModel {
-        return businessFeed[indexPath.row]
-    }
+    func throttleFetchBusinesses(term: String, location: String, categories: String, sortBy: SortBy, limit: Int, completion: @escaping (Error?) -> Void) {
+           currentWorkItem?.cancel()
+           let workItem = DispatchWorkItem { [weak self] in
+               self?.fetchBusinesses(term: term, location: location, categories: categories, sortBy: sortBy, limit: limit, completion: completion)
+           }
+           currentWorkItem = workItem
+           DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: workItem)
+       }
+
 }
 

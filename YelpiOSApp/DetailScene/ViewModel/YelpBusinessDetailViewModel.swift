@@ -17,6 +17,7 @@ struct BusinessDetailViewModel {
     public let phone: String
     public let location: String
     public let photos: [String]?
+    public let isOpenNow: Bool
     
 }
 
@@ -24,9 +25,6 @@ class YelpBusinessDetailViewModel {
     
     private let apiClient: YelpAPIClientProtocol
     private(set) var businessDetailFeed: BusinessDetailViewModel?
-    
-    var yelpAPIClient = YelpAPIClient(apiKey: APIKey.key)
-    var viewModel:YelpHomeViewModel!
     
     var onUpdate: ((Error?) -> Void)?
     
@@ -48,7 +46,7 @@ class YelpBusinessDetailViewModel {
                                                              price: businessDetail.price,
                                                              phone: businessDetail.phone,
                                                              location: businessDetail.location.displayAddress.joined(separator: ","),
-                                                             photos: businessDetail.photos)
+                                                                   photos: businessDetail.photos, isOpenNow: businessDetail.hours?[0].isOpenNow ?? false)
                 completion(nil)
                 
                 

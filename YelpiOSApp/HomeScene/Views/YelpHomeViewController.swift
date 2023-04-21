@@ -98,7 +98,7 @@ extension YelpHomeViewController {
     func reloadDataWith(term searchText : String, sort sortValue: SortBy){
         
         activityIndicator.startAnimating()
-        viewModel.fetchBusinesses(term: searchText, location: "Toronto", categories: "restaurants", sortBy: sortValue, limit: 10)
+        viewModel.throttleFetchBusinesses(term: searchText, location: "Toronto", categories: "restaurants", sortBy: sortValue, limit: 10)
         { [weak self] error in
             if let error = error {
                 print("Error fetching businesses: \(error.localizedDescription)")
