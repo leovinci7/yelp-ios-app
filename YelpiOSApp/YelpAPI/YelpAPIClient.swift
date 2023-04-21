@@ -27,6 +27,21 @@ public class YelpAPIClient: YelpAPIClientProtocol {
         case networkError(Error)
         case apiError(Int)
         case invalidResponse
+        case decodingError(Error)
+        
+        var localizedDescription: String {
+            switch self {
+            case .networkError(let error):
+                return NSLocalizedString("Network Error: \(error.localizedDescription)", comment: "Network Error")
+            case .apiError(let statusCode):
+                return NSLocalizedString("API Error: \(statusCode)", comment: "API Error")
+            case .invalidResponse:
+                return NSLocalizedString("Invalid Response", comment: "Invalid Response")
+            case .decodingError(let error):
+                return NSLocalizedString("Decoding Error: \(error.localizedDescription)", comment: "Decoding Error")
+            }
+        }
+            
     }
     
     

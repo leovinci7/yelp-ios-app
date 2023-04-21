@@ -22,6 +22,45 @@ struct BusinessDetailViewModel {
 
 class YelpBusinessDetailViewModel {
     
+    private let apiClient: YelpAPIClientProtocol
+    private(set) var businessDetailFeed: BusinessDetailViewModel?
+    
+    var yelpAPIClient = YelpAPIClient(apiKey: APIKey.key)
+    var viewModel:YelpHomeViewModel!
+    
+    var onUpdate: ((Error?) -> Void)?
+    
+    init(apiClient: YelpAPIClientProtocol) {
+        self.apiClient = apiClient
+    }
+    
+    func fetchBusinessDetailWithID(id businessId:String, completion: @escaping (Error?) -> Void){
+        
+        self.apiClient.getBusinessDetails(businessId: businessId){ [weak self] result in
+            
+            switch result{
+            case let .success(businessDetail):
+                self?.businessDetailFeed = BusinessDetailViewModel(id:businessDetail.id,
+                                                             name: businessDetail.name,
+                                                             imageUrl: businessDetail.imageUrl,
+                                                             rating: businessDetail.rating,
+                                                             reviewCount: businessDetail.reviewCount,
+                                                             price: businessDetail.price,
+                                                             phone: businessDetail.phone,
+                                                             location: businessDetail.location.displayAddress.joined(separator: ","),
+                                                             photos: businessDetail.photos)
+                completion(nil)
+                
+                
+            case let .failure(error):
+                completion(error)
+            }
+            
+            
+        }
+        
+        
+    }
     
     
 }

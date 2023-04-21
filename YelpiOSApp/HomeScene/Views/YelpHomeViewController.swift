@@ -69,7 +69,7 @@ extension YelpHomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedItem = viewModel.businessFeed[indexPath.row].name
+        let selectedItem = viewModel.businessFeed[indexPath.row].id
         
         let detailViewController = UIStoryboard(name: "BusinessDetail", bundle: nil).instantiateViewController(withIdentifier: "YelpBusinessDetailView") as! YelpBusinessDetailViewController
         
