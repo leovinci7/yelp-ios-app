@@ -24,6 +24,7 @@ class YelpBusinessDetailViewController:BaseViewController {
     @IBOutlet weak var businessOpenStatus: UILabel!
     @IBOutlet weak var businessOperatingHour: UILabel!
     
+    @IBOutlet weak var businessDisplayAddress: UILabel!
     var selectedItem:String!
     var yelpAPIClient = YelpAPIClient(apiKey: APIKey.key)
     var viewModel:YelpBusinessDetailViewModel!
@@ -94,6 +95,8 @@ extension YelpBusinessDetailViewController {
                     self?.businessPriceCategory.text = businessDetailFeed?.price ?? "No Info"
                     
                     self?.businessOperatingHour.text = businessDetailFeed?.todayOperatingHour
+                    
+                    self?.businessDisplayAddress.text = businessDetailFeed?.location
                     
                 }
                 
