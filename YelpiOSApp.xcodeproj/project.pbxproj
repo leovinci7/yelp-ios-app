@@ -130,10 +130,9 @@
 		059B9B7429EC67C900AD63E0 /* YelpiOSApp */ = {
 			isa = PBXGroup;
 			children = (
-				059B9BBF29ECC6AA00AD63E0 /* Helper */,
 				059B9BB629ECB7AE00AD63E0 /* YelpAPI */,
-				059B9BA629EC6F4F00AD63E0 /* DetailScene */,
-				059B9BA529EC6F4000AD63E0 /* HomeScene */,
+				059B9BBF29ECC6AA00AD63E0 /* Helper */,
+				059B9BDB29F2E00F00AD63E0 /* Scenes */,
 				059B9B7529EC67C900AD63E0 /* AppDelegate.swift */,
 				059B9B7729EC67C900AD63E0 /* SceneDelegate.swift */,
 				059B9B7E29EC67CA00AD63E0 /* Assets.xcassets */,
@@ -213,7 +212,6 @@
 			children = (
 				059B9BC029ECC75200AD63E0 /* ViewHelper.swift */,
 				059B9BC429ED25E000AD63E0 /* APIKey.swift */,
-				059B9BD929F2946900AD63E0 /* BaseViewController.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -240,6 +238,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		059B9BDB29F2E00F00AD63E0 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				059B9BD929F2946900AD63E0 /* BaseViewController.swift */,
+				059B9BA529EC6F4000AD63E0 /* HomeScene */,
+				059B9BA629EC6F4F00AD63E0 /* DetailScene */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
