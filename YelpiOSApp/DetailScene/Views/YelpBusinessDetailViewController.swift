@@ -33,7 +33,17 @@ class YelpBusinessDetailViewController:BaseViewController {
         title = "Detail"
         print("business detail view selected item: \(selectedItem ?? "")")
         viewModel = YelpBusinessDetailViewModel(apiClient: self.yelpAPIClient)
-        
+        configureDetailView()
+
+    }
+    
+}
+
+
+
+
+extension YelpBusinessDetailViewController {
+    func configureDetailView(){
         activityIndicator.startAnimating()
         viewModel.fetchBusinessDetailWithID(id: self.selectedItem){ [weak self] error in
             if let error = error {
@@ -83,29 +93,15 @@ class YelpBusinessDetailViewController:BaseViewController {
                     // Display price
                     self?.businessPriceCategory.text = businessDetailFeed?.price ?? "No Info"
                     
-                    self?.businessOperatingHour.text = businessDetailFeed?.location
+                    self?.businessOperatingHour.text = businessDetailFeed?.todayOperatingHour
                     
                 }
                 
             }
             
         }
-        
     }
-    
 }
-
-//extension UIImageView {
-//    func fadeIn(duration: TimeInterval = 0.3, delay: TimeInterval = 0.2) {
-//        self.alpha = 0
-//        UIView.animate(
-//            withDuration: duration,
-//            delay: delay,
-//            animations: {
-//                self.alpha = 1
-//        })
-//    }
-//}
 
 extension UIView {
     func fadeIn(duration: TimeInterval = 0.3, delay: TimeInterval = 0.2) {
