@@ -21,7 +21,7 @@ public class YelpAPIClient: YelpAPIClientProtocol {
     private let session: URLSessionProtocol
     private let baseURL = "https://api.yelp.com/v3/businesses"
     private let apiKey:String
-
+    
     // Error Enum
     enum YelpErrors: Error {
         case networkError(Error)
@@ -31,21 +31,21 @@ public class YelpAPIClient: YelpAPIClientProtocol {
         
         var localizedDescription: String {
             switch self {
-            case .networkError(let error):
-                return NSLocalizedString("Network Error: \(error.localizedDescription)", comment: "Network Error")
+            case .networkError:
+                return NSLocalizedString("There was a problem connecting to the network. Please check your internet connection and try again.", comment: "Network Error")
             case .apiError(let statusCode):
-                return NSLocalizedString("API Error: \(statusCode)", comment: "API Error")
+                return NSLocalizedString("An error occurred while processing your request (Error Code: \(statusCode)). Please try again later.", comment: "API Error")
             case .invalidResponse:
-                return NSLocalizedString("Invalid Response", comment: "Invalid Response")
-            case .decodingError(let error):
-                return NSLocalizedString("Decoding Error: \(error.localizedDescription)", comment: "Decoding Error")
+                return NSLocalizedString("We received an unexpected response. Please try again later.", comment: "Invalid Response")
+            case .decodingError:
+                return NSLocalizedString("There was a problem processing the data. Please try again later.", comment: "Decoding Error")
             }
         }
-            
+        
     }
     
     
-   public init(session: URLSessionProtocol = URLSession.shared, apiKey:String) {
+    public init(session: URLSessionProtocol = URLSession.shared, apiKey:String) {
         self.session = session
         self.apiKey = apiKey
     }
@@ -87,7 +87,7 @@ public class YelpAPIClient: YelpAPIClientProtocol {
     
     public func searchBusinesses(term: String, longitude:Double? = nil, latitude: Double? = nil, location: String? = nil, categories: String, sortBy: SortBy = .bestMatch, limit: Int, completion: @escaping (Result<[Business], Error>) -> Void) {
         var urlComponents = URLComponents(string: "\(baseURL)/search")!
-       
+        
         urlComponents.queryItems = [
             URLQueryItem(name: "term", value: term),
             URLQueryItem(name: "categories", value: categories),
@@ -131,10 +131,10 @@ public class YelpAPIClient: YelpAPIClientProtocol {
             do {
                 let searchBusinessResponse = try JSONDecoder().decode(SearchBusinessesResponse.self, from: data)
                 completion(.success(searchBusinessResponse.businesses))
-                } catch {
-                    completion(.failure(error))
+            } catch {
+                completion(.failure(error))
             }
-                
+            
         }.resume()
     }
 }

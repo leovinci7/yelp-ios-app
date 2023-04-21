@@ -89,6 +89,9 @@ extension YelpHomeViewController {
         { [weak self] error in
             if let error = error {
                 print("Error fetching businesses: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self?.showErrorAlert(message: error.localizedDescription)
+                }
             } else {
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()

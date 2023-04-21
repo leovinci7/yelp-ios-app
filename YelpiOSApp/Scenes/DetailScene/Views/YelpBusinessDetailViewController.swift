@@ -50,6 +50,9 @@ extension YelpBusinessDetailViewController {
             if let error = error {
                 print(error.localizedDescription)
                 self?.activityIndicator.stopAnimating()
+                DispatchQueue.main.async { [weak self] in
+                    self?.showErrorAlert(message: error.localizedDescription)
+                }
             }else {
                 DispatchQueue.main.async { [weak self] in
                     let businessDetailFeed = self?.viewModel.businessDetailFeed
