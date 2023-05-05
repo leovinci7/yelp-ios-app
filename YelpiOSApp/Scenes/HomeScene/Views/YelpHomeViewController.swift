@@ -14,8 +14,9 @@ class YelpHomeViewController: BaseViewController{
     @IBOutlet weak var sortControlView: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
-    var yelpAPIClient = YelpAPIClient(apiKey: APIKey.key)
+    // A client class should never instantiate directly its dependencies. You should you property, method or constructor injection.
+    var yelpAPIClient = YelpAPIClient(apiKey: APIKey.key) // -> Bad practice
+    // forcing unwrapping is a bad practice
     var viewModel:YelpHomeViewModel!
     let defaultSearchText = "Italian"
     
@@ -26,7 +27,7 @@ class YelpHomeViewController: BaseViewController{
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.text = defaultSearchText
-        
+        // A client class should never instantiate directly its dependencies. You should you property, method or constructor injection.
         viewModel = YelpHomeViewModel(apiClient: self.yelpAPIClient)
         let sortValue = getSortValue(for: sortControlView.selectedSegmentIndex)
         reloadDataWith(term: defaultSearchText, sort: sortValue)
@@ -48,6 +49,7 @@ extension YelpHomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Forcing unwrapp is a code smell
         let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessViewCell") as! YelpHomeViewCustomCell
         let model = viewModel.businessFeed[indexPath.row]
         cell.configure(with: model)
@@ -61,7 +63,7 @@ extension YelpHomeViewController: UITableViewDelegate, UITableViewDataSource{
         let detailViewController = UIStoryboard(name: "BusinessDetail", bundle: nil).instantiateViewController(withIdentifier: "YelpBusinessDetailView") as! YelpBusinessDetailViewController
         
         detailViewController.selectedItem = selectedItem
-        
+        // I prefer to delegate the navigation target to another layer, like a composition root or a Coordinator
         navigationController?.pushViewController(detailViewController, animated: true)
         
     }
@@ -88,7 +90,8 @@ extension YelpHomeViewController {
         viewModel.throttleFetchBusinesses(term: searchText, location: "Toronto", categories: "restaurants", sortBy: sortValue, limit: 10)
         { [weak self] error in
             if let error = error {
-                print("Error fetching businesses: \(error.localizedDescription)")
+                print("Error fetching businesses: \(error.localizedDescription)") // print should not stay in production / release code
+                // Why do you need to dispatch to main here ?
                 DispatchQueue.main.async {
                     self?.showErrorAlert(message: error.localizedDescription)
                 }
@@ -102,7 +105,7 @@ extension YelpHomeViewController {
     }
     
     
-    
+    // Can this method be private ?
     func getSortValue(for selectedIndex: Int) -> SortBy {
         switch selectedIndex {
         case 0:

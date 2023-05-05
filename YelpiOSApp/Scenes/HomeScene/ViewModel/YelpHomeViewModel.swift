@@ -7,6 +7,8 @@
 
 import Foundation
 
+// When you use the term ViewModel as a layer for MVVM, I suggest you not use for ViewData.
+// I would rename it to BusinessViewData and save it in a separate file
 struct BusinessViewModel {
     let id: String 
     let name: String
@@ -50,6 +52,7 @@ class YelpHomeViewModel {
     
     func throttleFetchBusinesses(term: String, location: String, categories: String, sortBy: SortBy, limit: Int, completion: @escaping (Error?) -> Void) {
            currentWorkItem?.cancel()
+            // Why did you decide to use DispatchWork here ?
            let workItem = DispatchWorkItem { [weak self] in
                self?.fetchBusinesses(term: term, location: location, categories: categories, sortBy: sortBy, limit: limit, completion: completion)
            }
