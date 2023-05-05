@@ -16,6 +16,7 @@ public enum SortBy: String {
 
 
 public protocol YelpAPIClientProtocol {
+    // too much parameters. You should create a struct for them
     func searchBusinesses(term: String, longitude: Double?, latitude: Double?, location: String?, categories: String, sortBy: SortBy, limit: Int, completion: @escaping (Result<[Business], Error>) -> Void)
     
     func getBusinessDetails(businessId: String, completion: @escaping (Result<BusinessDetails, Error>) -> Void)

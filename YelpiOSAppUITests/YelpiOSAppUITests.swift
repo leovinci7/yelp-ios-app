@@ -6,7 +6,7 @@
 //
 
 import XCTest
-
+// Delete unused files
 final class YelpiOSAppUITests: XCTestCase {
 
     override func setUpWithError() throws {
